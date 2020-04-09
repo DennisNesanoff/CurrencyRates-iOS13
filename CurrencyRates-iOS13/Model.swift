@@ -21,12 +21,13 @@ class Currency {
 }
 
 class Model: NSObject, XMLParserDelegate {
+    static let shared = Model()
+    var currensies = [Currency]()
+    var currentDate = String()
     let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory,
                                                    FileManager.SearchPathDomainMask.userDomainMask,
                                                    true)[0]+"/XML_daily.asp.xml"
     
-    static let shared = Model()
-    var currensies = [Currency]()
     
     var pathForXML: String {
         if FileManager.default.fileExists(atPath: path) {
@@ -40,7 +41,7 @@ class Model: NSObject, XMLParserDelegate {
         return URL(fileURLWithPath: pathForXML)
     }
     
-    // download XML from cbr.ru and saved
+    // MARK: - Download XML from cbr.ru and saved
     func loadXMLfile(date: Date?) {
         var urlString = "https://www.cbr.ru/scripts/XML_daily.asp?date_req="
         if date != nil {
@@ -55,6 +56,7 @@ class Model: NSObject, XMLParserDelegate {
             let urlForSave = URL(fileURLWithPath: self.path)
             do {
                 try data?.write(to: urlForSave)
+                self.parseXML()
                 print(self.path)
             } catch {
                 print(error)
@@ -63,17 +65,23 @@ class Model: NSObject, XMLParserDelegate {
         
     }
     
+    // MARK: - Parse XML
     func parseXML() {
         currensies = []
         let parser = XMLParser(contentsOf: urlForXML!)
         parser?.delegate = self
         parser?.parse()
         
-        print(currensies)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dateRefreshed"), object: self)
     }
     
     var currentCurrency: Currency?
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName: String?, attributes attributeDict: [String : String]) {
+        if elementName == "ValCurs" {
+            if let currentDateString = attributeDict["Date"] {
+                currentDate = currentDateString
+            }
+        }
         if elementName == "Valute" {
             currentCurrency = Currency()
         }

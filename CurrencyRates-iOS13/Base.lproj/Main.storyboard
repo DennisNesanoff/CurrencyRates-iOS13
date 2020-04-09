@@ -41,6 +41,45 @@
             </objects>
             <point key="canvasLocation" x="1138" y="25"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5IQ-vR-ycx">
+            <objects>
+                <viewController id="Oam-5d-lkL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6kF-cc-l3P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gqu-lj-9dh">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VBa-Rl-a5D">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="366"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-dc-tnZ">
+                                        <rect key="frame" x="0.0" y="386" width="414" height="366"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Show currensy for the date"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gqu-lj-9dh" firstAttribute="top" secondItem="yko-aV-cI4" secondAttribute="top" id="9Ql-xI-RTY"/>
+                            <constraint firstItem="yko-aV-cI4" firstAttribute="trailing" secondItem="gqu-lj-9dh" secondAttribute="trailing" id="Llr-mt-Kcm"/>
+                            <constraint firstItem="yko-aV-cI4" firstAttribute="bottom" secondItem="gqu-lj-9dh" secondAttribute="bottom" id="ezv-dv-UTh"/>
+                            <constraint firstItem="gqu-lj-9dh" firstAttribute="leading" secondItem="6kF-cc-l3P" secondAttribute="leading" id="uko-8R-NPl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yko-aV-cI4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pIh-1R-jzv">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="XEY-Ja-hAl"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDr-0c-YQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961" y="-1349"/>
+        </scene>
         <!--Cources-->
         <scene sceneID="Z41-zc-6sa">
             <objects>
@@ -80,7 +119,14 @@
                             <outlet property="delegate" destination="5rS-xM-lIY" id="4oM-E1-lpY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cources" id="Vxw-Ae-GAi"/>
+                    <navigationItem key="navigationItem" title="Cources" id="Vxw-Ae-GAi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KHE-mR-i7g">
+                            <connections>
+                                <segue destination="nyd-59-oBV" kind="presentation" id="iaa-G9-rKP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="l2T-H9-r1A"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnW-3i-aWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,6 +169,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEd-Ip-uae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328" y="25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="inR-Gc-xix">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nyd-59-oBV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SoE-zM-qGj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oam-5d-lkL" kind="relationship" relationship="rootViewController" id="5jH-r1-AOJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agz-sh-dvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137.68115942029" y="-1349.3303571428571"/>
         </scene>
     </scenes>
 </document>
