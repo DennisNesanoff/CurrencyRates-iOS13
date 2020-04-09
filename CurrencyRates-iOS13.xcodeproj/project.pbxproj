@@ -13,6 +13,8 @@
 		8D22E6A6243F1F3600302756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D22E6A4243F1F3600302756 /* Main.storyboard */; };
 		8D22E6A8243F1F3700302756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D22E6A7243F1F3700302756 /* Assets.xcassets */; };
 		8D22E6AB243F1F3700302756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D22E6A9243F1F3700302756 /* LaunchScreen.storyboard */; };
+		8D22E6B3243F209000302756 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D22E6B2243F209000302756 /* Model.swift */; };
+		8D22E6B7243F27E200302756 /* XML_daily.asp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8D22E6B6243F27E200302756 /* XML_daily.asp.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8D22E6A7243F1F3700302756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D22E6AA243F1F3700302756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D22E6AC243F1F3700302756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D22E6B2243F209000302756 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8D22E6B6243F27E200302756 /* XML_daily.asp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = XML_daily.asp.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				8D22E69E243F1F3600302756 /* AppDelegate.swift */,
 				8D22E6A0243F1F3600302756 /* SceneDelegate.swift */,
 				8D22E6A2243F1F3600302756 /* ViewController.swift */,
+				8D22E6B2243F209000302756 /* Model.swift */,
 				8D22E6A4243F1F3600302756 /* Main.storyboard */,
 				8D22E6A7243F1F3700302756 /* Assets.xcassets */,
 				8D22E6A9243F1F3700302756 /* LaunchScreen.storyboard */,
 				8D22E6AC243F1F3700302756 /* Info.plist */,
+				8D22E6B6243F27E200302756 /* XML_daily.asp.xml */,
 			);
 			path = "CurrencyRates-iOS13";
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D22E6AB243F1F3700302756 /* LaunchScreen.storyboard in Resources */,
+				8D22E6B7243F27E200302756 /* XML_daily.asp.xml in Resources */,
 				8D22E6A8243F1F3700302756 /* Assets.xcassets in Resources */,
 				8D22E6A6243F1F3600302756 /* Main.storyboard in Resources */,
 			);
@@ -138,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D22E6B3243F209000302756 /* Model.swift in Sources */,
 				8D22E6A3243F1F3600302756 /* ViewController.swift in Sources */,
 				8D22E69F243F1F3600302756 /* AppDelegate.swift in Sources */,
 				8D22E6A1243F1F3600302756 /* SceneDelegate.swift in Sources */,
@@ -294,7 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nesanoff.CurrencyRates-iOS13";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nesanoff.CurrencyRates-iOS13";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
