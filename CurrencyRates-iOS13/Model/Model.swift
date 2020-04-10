@@ -18,6 +18,18 @@ class Currency {
     
     var Value: String?
     var valueDouble: Double?
+    
+    class func rouble() -> Currency {
+        let rub = Currency()
+        rub.CharCode = "RUR"
+        rub.Name = "Российский рубль"
+        rub.Nominal = "1"
+        rub.nominalDouble = 1
+        rub.Value = "1"
+        rub.valueDouble = 1
+        
+        return rub
+    }
 }
 
 class Model: NSObject, XMLParserDelegate {
@@ -27,7 +39,18 @@ class Model: NSObject, XMLParserDelegate {
     let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory,
                                                    FileManager.SearchPathDomainMask.userDomainMask,
                                                    true)[0]+"/XML_daily.asp.xml"
+    var fromCurrency = Currency.rouble()
+    var toCurrency = Currency.rouble()
     
+    func convert(amount: Double?) -> String {
+        if amount == nil {
+            return ""
+        }
+        
+        let d = ((fromCurrency.nominalDouble! * fromCurrency.valueDouble!) / (toCurrency.nominalDouble! * toCurrency.valueDouble!)) * amount!
+        
+        return String(d)
+    }
     
     var pathForXML: String {
         if FileManager.default.fileExists(atPath: path) {
@@ -52,7 +75,12 @@ class Model: NSObject, XMLParserDelegate {
         let url = URL(string: urlString)
         
         URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard error == nil else { return }
+//            var globalError: String?
+            guard error == nil else {
+//                print(error)
+//                globalError = error?.localizedDescription
+                return
+            }
             let urlForSave = URL(fileURLWithPath: self.path)
             do {
                 try data?.write(to: urlForSave)
@@ -60,19 +88,35 @@ class Model: NSObject, XMLParserDelegate {
                 print(self.path)
             } catch {
                 print(error)
+//                globalError = error.localizedDescription
             }
+            
+//            if let error = globalError {
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "errorWhenLoadingXML"), object: self, userInfo: ["ErrorName": globalError])
+//            }
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "startLoadingXML"), object: self)
         }.resume()
         
     }
     
     // MARK: - Parse XML
     func parseXML() {
-        currensies = []
+        currensies = [Currency()]
         let parser = XMLParser(contentsOf: urlForXML!)
         parser?.delegate = self
         parser?.parse()
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dateRefreshed"), object: self)
+        
+        for currensy in currensies {
+            if currensy.CharCode == fromCurrency.CharCode {
+                fromCurrency = currensy
+            }
+            if currensy.CharCode == toCurrency.CharCode {
+                toCurrency = currensy
+            }
+        }
     }
     
     var currentCurrency: Currency?

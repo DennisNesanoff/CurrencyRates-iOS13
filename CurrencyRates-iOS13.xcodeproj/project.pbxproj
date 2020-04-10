@@ -16,6 +16,8 @@
 		8D22E6B7243F27E200302756 /* XML_daily.asp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8D22E6B6243F27E200302756 /* XML_daily.asp.xml */; };
 		8DD27884243F7EFC00821BFF /* CourcesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD27883243F7EFC00821BFF /* CourcesController.swift */; };
 		8DD27886243F7F2900821BFF /* ConverterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD27885243F7F2900821BFF /* ConverterVC.swift */; };
+		8DD278882440563400821BFF /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD278872440563400821BFF /* SettingsVC.swift */; };
+		8DD2788D2440A71C00821BFF /* SelectCurrensyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD2788C2440A71C00821BFF /* SelectCurrensyTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		8D22E6B6243F27E200302756 /* XML_daily.asp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = XML_daily.asp.xml; sourceTree = "<group>"; };
 		8DD27883243F7EFC00821BFF /* CourcesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourcesController.swift; sourceTree = "<group>"; };
 		8DD27885243F7F2900821BFF /* ConverterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterVC.swift; sourceTree = "<group>"; };
+		8DD278872440563400821BFF /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		8DD2788C2440A71C00821BFF /* SelectCurrensyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrensyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +68,42 @@
 			children = (
 				8D22E69E243F1F3600302756 /* AppDelegate.swift */,
 				8D22E6A0243F1F3600302756 /* SceneDelegate.swift */,
-				8D22E6B2243F209000302756 /* Model.swift */,
-				8D22E6A4243F1F3600302756 /* Main.storyboard */,
-				8DD27883243F7EFC00821BFF /* CourcesController.swift */,
-				8DD27885243F7F2900821BFF /* ConverterVC.swift */,
+				8DD2788B244058C100821BFF /* Model */,
+				8DD2788A244058B000821BFF /* View */,
+				8DD278892440588600821BFF /* Controller */,
 				8D22E6A7243F1F3700302756 /* Assets.xcassets */,
 				8D22E6A9243F1F3700302756 /* LaunchScreen.storyboard */,
 				8D22E6AC243F1F3700302756 /* Info.plist */,
 				8D22E6B6243F27E200302756 /* XML_daily.asp.xml */,
 			);
 			path = "CurrencyRates-iOS13";
+			sourceTree = "<group>";
+		};
+		8DD278892440588600821BFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8DD27883243F7EFC00821BFF /* CourcesController.swift */,
+				8DD278872440563400821BFF /* SettingsVC.swift */,
+				8DD27885243F7F2900821BFF /* ConverterVC.swift */,
+				8DD2788C2440A71C00821BFF /* SelectCurrensyTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8DD2788A244058B000821BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D22E6A4243F1F3600302756 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DD2788B244058C100821BFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D22E6B2243F209000302756 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,11 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DD2788D2440A71C00821BFF /* SelectCurrensyTableViewController.swift in Sources */,
 				8D22E6B3243F209000302756 /* Model.swift in Sources */,
 				8D22E69F243F1F3600302756 /* AppDelegate.swift in Sources */,
 				8DD27884243F7EFC00821BFF /* CourcesController.swift in Sources */,
 				8D22E6A1243F1F3600302756 /* SceneDelegate.swift in Sources */,
 				8DD27886243F7F2900821BFF /* ConverterVC.swift in Sources */,
+				8DD278882440563400821BFF /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
